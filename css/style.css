@@ -39,8 +39,17 @@
 
 .score {
     position: absolute;
+    margin-top: 20px;
+    margin-left: 20px;
     border: 1px solid black;
     
+}
+
+.level {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 100px;
+    border: 1px solid black;
 }
 
 @keyframes pipe-animation {
