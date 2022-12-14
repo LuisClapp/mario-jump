@@ -4,6 +4,8 @@ const pipe = document.querySelector('.pipe');
 
 const cloud = document.querySelector('.clouds');
 
+let score = 0;
+
 const jump = () => {
     mario.classList.add('jump')
 
@@ -17,14 +19,13 @@ const jump = () => {
 const loop = setInterval(() => {
 
     const pipePosition = pipe.offsetLeft;
-
+    
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
 
     const cloudPosition = cloud.offsetLeft;
 
-    console.log(marioPosition)
 
-    if (pipePosition <= 120 && pipePosition > 0 && marioPosition <80) {
+    if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
 
         pipe.style.animation = 'none';
         pipe.style.left = `${pipePosition}px`;
@@ -40,9 +41,14 @@ const loop = setInterval(() => {
         cloud.style.left = `${cloudPosition}px`;
 
         clearInterval(loop);
+    } else {
+        score++;
+        document.getElementById("score").innerHTML = score;
+    };
+}, 10);
 
-    }
-
-}, 10)
-
-document.addEventListener('keydown', jump)
+document.addEventListener('keydown', (e) => {
+    if ((e.code === "ArrowUp") | (e.code === "Space")) {
+        jump();
+    }  
+});
