@@ -4,7 +4,11 @@ const pipe = document.querySelector('.pipe');
 
 const cloud = document.querySelector('.clouds');
 
+let accountant = 0;
+
 let score = 0;
+
+let level = 0;
 
 const jump = () => {
     mario.classList.add('jump')
@@ -24,9 +28,10 @@ const loop = setInterval(() => {
 
     const cloudPosition = cloud.offsetLeft;
 
+    
 
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
-
+        
         pipe.style.animation = 'none';
         pipe.style.left = `${pipePosition}px`;
 
@@ -42,8 +47,19 @@ const loop = setInterval(() => {
 
         clearInterval(loop);
     } else {
-        score++;
-        document.getElementById("score").innerHTML = score;
+        accountant++;
+        console.log(accountant)
+        if(accountant%125 == 2) {
+            score++
+            document.getElementById("score").textContent = score
+            if(score%5 == 0) {
+                level++
+                document.getElementById("level").textContent = level
+                if(level%1 == 0) {
+                
+                }
+            }
+        }
     };
 }, 10);
 
