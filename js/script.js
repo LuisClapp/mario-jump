@@ -26,9 +26,7 @@ const loop = setInterval(() => {
     
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
 
-    const cloudPosition = cloud.offsetLeft;
-
-    
+    const cloudPosition = cloud.offsetLeft;  
 
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
         
@@ -48,16 +46,12 @@ const loop = setInterval(() => {
         clearInterval(loop);
     } else {
         accountant++;
-        console.log(accountant)
+        document.getElementById("score").textContent = accountant
         if(accountant%125 == 2) {
             score++
-            document.getElementById("score").textContent = score
             if(score%5 == 0) {
                 level++
                 document.getElementById("level").textContent = level
-                if(level%1 == 0) {
-                
-                }
             }
         }
     };
